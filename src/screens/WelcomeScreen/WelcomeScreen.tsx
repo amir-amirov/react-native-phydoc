@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -11,19 +11,26 @@ const WelcomeScreen = () => {
   const navigation: any = useNavigation();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Header numberOfFilled={1} />
+    <>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={palette.white}
+        translucent={false}
+      />
+      <SafeAreaView style={styles.container}>
+        <Header numberOfFilled={1} />
 
-      <Text style={styles.headerText}>Выберите формат приема</Text>
+        <Text style={styles.headerText}>Выберите формат приема</Text>
 
-      <View style={styles.appointments}>
-        <AppointmentFormat />
-      </View>
+        <View style={styles.appointments}>
+          <AppointmentFormat />
+        </View>
 
-      <View style={styles.buttons}>
-        <Buttons />
-      </View>
-    </SafeAreaView>
+        <View style={styles.buttons}>
+          <Buttons />
+        </View>
+      </SafeAreaView>
+    </>
   );
 };
 
