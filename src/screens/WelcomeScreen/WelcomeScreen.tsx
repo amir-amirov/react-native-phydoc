@@ -1,4 +1,4 @@
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, Text, View} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -6,6 +6,7 @@ import {palette} from '../../theme/palette';
 import Header from '../../components/Header/Header';
 import AppointmentFormat from '../../components/AppointmentFormat/AppointmentFormat';
 import Buttons from '../../components/Buttons/Buttons';
+import {styles} from './styles';
 
 const WelcomeScreen = () => {
   const navigation: any = useNavigation();
@@ -27,7 +28,7 @@ const WelcomeScreen = () => {
         </View>
 
         <View style={styles.buttons}>
-          <Buttons />
+          <Buttons navigation={navigation} />
         </View>
       </SafeAreaView>
     </>
@@ -35,29 +36,3 @@ const WelcomeScreen = () => {
 };
 
 export default WelcomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 0,
-    paddingHorizontal: 20,
-    paddingTop: 0,
-    paddingBottom: 20,
-    backgroundColor: palette.white,
-  },
-  headerText: {
-    fontFamily: 'Onest-Medium',
-    fontSize: 32,
-    lineHeight: 40,
-    color: palette.darkBlue,
-  },
-  appointments: {
-    margin: 0,
-    marginTop: 32,
-    padding: 0,
-  },
-  buttons: {
-    marginTop: 'auto',
-    marginBottom: 0,
-  },
-});
