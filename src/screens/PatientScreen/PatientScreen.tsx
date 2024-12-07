@@ -29,7 +29,7 @@ const PatientScreen = () => {
         <View style={styles.buttons}>
           <Buttons
             back={() => navigation.goBack()}
-            next={() => navigation.navigate('Confirmation')}
+            next={() => navigation.navigate('Schedule')}
           />
         </View>
       </SafeAreaView>

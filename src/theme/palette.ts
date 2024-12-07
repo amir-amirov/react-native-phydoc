@@ -9,4 +9,6 @@ export const palette = {
   border: '#D0D5DD',
   paragraph: '#446685',
   black: '#FFFFFF',
+  warning: '#7F3004',
+  warningBackground: '#FCF0DB',
 };
