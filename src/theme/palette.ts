@@ -7,4 +7,6 @@ export const palette = {
   backgroundFocused: '#ECEBFF',
   background: '#EFF2F5',
   border: '#D0D5DD',
+  paragraph: '#446685',
+  black: '#FFFFFF',
 };

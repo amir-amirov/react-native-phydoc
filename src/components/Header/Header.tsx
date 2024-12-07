@@ -1,16 +1,27 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import FilledProgress from '../../assets/icons/FilledProgressIcon';
 import UnFilledProgress from '../../assets/icons/UnFilledProgress';
 import CloseIcon from '../../assets/icons/CloseIcon';
+import {styles} from './styles';
 
-const Header = () => {
+interface HeaderProps {
+  numberOfFilled: number;
+}
+
+const Header: React.FC<HeaderProps> = ({numberOfFilled}) => {
+  const validNumberOfFilled = Math.max(1, Math.min(numberOfFilled, 3));
+
   return (
     <View style={styles.container}>
       <View style={styles.progress}>
-        <FilledProgress />
-        <UnFilledProgress />
-        <UnFilledProgress />
+        {Array.from({length: 3}).map((_, index) =>
+          index < validNumberOfFilled ? (
+            <FilledProgress key={index} />
+          ) : (
+            <UnFilledProgress key={index} />
+          ),
+        )}
       </View>
 
       <TouchableOpacity style={styles.close}>
@@ -21,23 +32,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    width: '100%',
-    height: 46,
-    paddingVertical: 7,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  progress: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  close: {
-    position: 'absolute',
-    right: 0,
-  },
-});
