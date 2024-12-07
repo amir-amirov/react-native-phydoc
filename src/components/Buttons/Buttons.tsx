@@ -5,15 +5,18 @@ import LeftArrow from '../../assets/icons/LeftArrow';
 import {styles} from './styles';
 
 interface ButtonsProps {
-  navigation: any;
+  back?: any;
+  next?: any;
 }
 
-const Buttons: React.FC<ButtonsProps> = ({navigation}) => {
+const Buttons: React.FC<ButtonsProps> = ({back, next}) => {
   const backBtn = 'Назад';
   const nextBtn = 'Дальше';
   return (
     <View style={styles.ButtonContainer}>
-      <TouchableOpacity style={styles.backBtn}>
+      <TouchableOpacity
+        style={styles.backBtn}
+        onPress={back ? () => back() : () => {}}>
         <LeftArrow />
         <Text style={[styles.BtnText, {color: palette.darkBlue}]}>
           {backBtn}
@@ -21,7 +24,7 @@ const Buttons: React.FC<ButtonsProps> = ({navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.nextBtn}
-        onPress={() => navigation.navigate('Schedule')}>
+        onPress={next ? () => next() : () => {}}>
         <Text style={[styles.BtnText, {color: palette.softWhite}]}>
           {nextBtn}
         </Text>

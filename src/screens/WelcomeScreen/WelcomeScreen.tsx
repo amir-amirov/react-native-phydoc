@@ -28,7 +28,7 @@ const WelcomeScreen = () => {
         </View>
 
         <View style={styles.buttons}>
-          <Buttons navigation={navigation} />
+          <Buttons next={() => navigation.navigate('Patient')} />
         </View>
       </SafeAreaView>
     </>

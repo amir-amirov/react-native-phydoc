@@ -17,23 +17,23 @@ const App = () => {
         <Stack.Screen
           name="Welcome"
           component={WelcomeScreen}
-          options={{animation: 'slide_from_bottom'}}></Stack.Screen>
+          options={{animation: 'slide_from_right'}}></Stack.Screen>
         <Stack.Screen
           name="Schedule"
           component={ScheduleScreen}
-          options={{animation: 'slide_from_bottom'}}></Stack.Screen>
+          options={{animation: 'slide_from_right'}}></Stack.Screen>
         <Stack.Screen
           name="Patient"
           component={PatientScreen}
-          options={{animation: 'slide_from_bottom'}}></Stack.Screen>
+          options={{animation: 'slide_from_right'}}></Stack.Screen>
         <Stack.Screen
           name="Confirmation"
           component={ConfirmationScreen}
-          options={{animation: 'slide_from_bottom'}}></Stack.Screen>
+          options={{animation: 'slide_from_right'}}></Stack.Screen>
         <Stack.Screen
           name="Success"
           component={SuccessScreen}
-          options={{animation: 'slide_from_bottom'}}></Stack.Screen>
+          options={{animation: 'slide_from_right'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

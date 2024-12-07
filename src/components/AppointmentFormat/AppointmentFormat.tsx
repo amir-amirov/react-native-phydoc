@@ -4,7 +4,7 @@ import {appointments} from '../../data/data';
 import {styles} from './styles';
 
 const AppointmentFormat = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
     <View style={styles.Container}>
