@@ -7,9 +7,10 @@ import {styles} from './styles';
 interface ButtonsProps {
   back?: any;
   next?: any;
+  data?: any;
 }
 
-const Buttons: React.FC<ButtonsProps> = ({back, next}) => {
+const Buttons: React.FC<ButtonsProps> = ({back, next, data}) => {
   const backBtn = 'Назад';
   const nextBtn = 'Дальше';
   return (
@@ -23,9 +24,20 @@ const Buttons: React.FC<ButtonsProps> = ({back, next}) => {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.nextBtn}
+        style={[
+          styles.nextBtn,
+          {
+            backgroundColor: data
+              ? palette.brightBlue
+              : palette.disabledBackground,
+          },
+        ]}
         onPress={next ? () => next() : () => {}}>
-        <Text style={[styles.BtnText, {color: palette.softWhite}]}>
+        <Text
+          style={[
+            styles.BtnText,
+            {color: data ? palette.softWhite : palette.disabledText},
+          ]}>
           {nextBtn}
         </Text>
       </TouchableOpacity>
