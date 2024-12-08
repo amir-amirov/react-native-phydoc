@@ -1,12 +1,12 @@
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, Text, View} from 'react-native';
 import React from 'react';
-import {Button} from '@react-navigation/elements';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {palette} from '../../theme/palette';
 import Header from '../../components/Header/Header';
 import Buttons from '../../components/Buttons/Buttons';
 import PatientForm from '../../components/PatientForm/PatientForm';
+import {styles} from './styles';
 
 const PatientScreen = () => {
   const navigation: any = useNavigation();
@@ -36,31 +36,5 @@ const PatientScreen = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 0,
-    paddingHorizontal: 20,
-    paddingTop: 0,
-    paddingBottom: 20,
-    backgroundColor: palette.white,
-  },
-  headerText: {
-    fontFamily: 'Onest-Medium',
-    fontSize: 32,
-    lineHeight: 40,
-    color: palette.darkBlue,
-  },
-  innerContainer: {
-    margin: 0,
-    marginTop: 32,
-    padding: 0,
-  },
-  buttons: {
-    marginTop: 'auto',
-    marginBottom: 0,
-  },
-});
 
 export default PatientScreen;
