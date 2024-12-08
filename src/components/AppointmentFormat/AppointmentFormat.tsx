@@ -3,8 +3,14 @@ import React, {useState} from 'react';
 import {appointments} from '../../data/data';
 import {styles} from './styles';
 
-const AppointmentFormat = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+interface AppointmentFormatProps {
+  setAppointmentType: any;
+}
+
+const AppointmentFormat: React.FC<AppointmentFormatProps> = ({
+  setAppointmentType,
+}) => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
     <View style={styles.Container}>
@@ -12,7 +18,10 @@ const AppointmentFormat = () => {
         <TouchableOpacity
           style={selectedIndex === index ? styles.SelectedCard : styles.Card}
           key={index}
-          onPress={() => setSelectedIndex(index)}>
+          onPress={() => {
+            setSelectedIndex(index);
+            setAppointmentType(item.title);
+          }}>
           <Text style={styles.Title}>{item.title}</Text>
           <Text style={styles.Desc}>{item.desc}</Text>
         </TouchableOpacity>

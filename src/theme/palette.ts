@@ -11,4 +11,6 @@ export const palette = {
   black: '#FFFFFF',
   warning: '#7F3004',
   warningBackground: '#FCF0DB',
+  disabledBackground: '#E4E7EC',
+  disabledText: '#98A2B3',
 };

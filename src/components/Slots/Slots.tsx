@@ -11,7 +11,11 @@ import {ru} from 'date-fns/locale';
 import {API_URL} from '@env';
 import {styles} from './styles';
 
-const Slots = () => {
+interface SlotsProps {
+  setSlot: any;
+}
+
+const Slots: React.FC<SlotsProps> = ({setSlot}) => {
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
   const [slotsByDay, setSlotsByDay] = useState({});
 
@@ -85,7 +89,10 @@ const Slots = () => {
                               ? styles.slotFocused
                               : styles.slotUnFocused
                           }
-                          onPress={() => setSelectedIndex(slot.id)}>
+                          onPress={() => {
+                            setSelectedIndex(slot.id);
+                            setSlot(slot);
+                          }}>
                           <Text
                             style={
                               slot.id === selectedIndex

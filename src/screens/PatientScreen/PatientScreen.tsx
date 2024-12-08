@@ -28,6 +28,7 @@ const PatientScreen = () => {
 
         <View style={styles.buttons}>
           <Buttons
+            data={true}
             back={() => navigation.goBack()}
             next={() => navigation.navigate('Schedule')}
           />
