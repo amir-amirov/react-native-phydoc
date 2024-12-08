@@ -1,5 +1,5 @@
 import {StatusBar, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {palette} from '../../theme/palette';
@@ -9,8 +9,15 @@ import Warning from '../../components/Warning/Warning';
 import Slots from '../../components/Slots/Slots';
 import {styles} from './styles';
 
+interface slotProps {
+  time: string;
+  price: number;
+}
+
 const ScheduleScreen = () => {
   const navigation: any = useNavigation();
+
+  const [slot, setSlot] = useState<slotProps | null>(null);
 
   return (
     <>
@@ -28,13 +35,14 @@ const ScheduleScreen = () => {
         </View>
 
         <View style={styles.slots}>
-          <Slots />
+          <Slots setSlot={setSlot} />
         </View>
 
         <View style={styles.buttons}>
           <Buttons
             back={() => navigation.goBack()}
-            next={() => navigation.navigate('Schedule')}
+            next={() => navigation.navigate('Confirmation')}
+            data={slot}
           />
         </View>
       </SafeAreaView>

@@ -1,5 +1,5 @@
 import {StatusBar, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {palette} from '../../theme/palette';
@@ -10,6 +10,8 @@ import {styles} from './styles';
 
 const WelcomeScreen = () => {
   const navigation: any = useNavigation();
+
+  const [appointmentType, setAppointmentType] = useState('');
 
   return (
     <>
@@ -24,11 +26,14 @@ const WelcomeScreen = () => {
         <Text style={styles.headerText}>Выберите формат приема</Text>
 
         <View style={styles.appointments}>
-          <AppointmentFormat />
+          <AppointmentFormat setAppointmentType={setAppointmentType} />
         </View>
 
         <View style={styles.buttons}>
-          <Buttons next={() => navigation.navigate('Patient')} />
+          <Buttons
+            data={appointmentType}
+            next={() => navigation.navigate('Patient')}
+          />
         </View>
       </SafeAreaView>
     </>
