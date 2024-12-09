@@ -9,10 +9,12 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {palette} from '../../theme/palette';
+import {useDispatch} from 'react-redux';
+import {resetAppointment} from '../../redux/slices/appointmentSlice';
 
 const WelcomeScreen = () => {
   const navigation: any = useNavigation();
-
+  const dispatch = useDispatch();
   return (
     <>
       <StatusBar
@@ -33,7 +35,10 @@ const WelcomeScreen = () => {
         </View>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('Welcome')}>
+          onPress={() => {
+            dispatch(resetAppointment());
+            navigation.navigate('Welcome');
+          }}>
           <Text style={styles.buttonText}>Хорошо</Text>
         </TouchableOpacity>
       </SafeAreaView>

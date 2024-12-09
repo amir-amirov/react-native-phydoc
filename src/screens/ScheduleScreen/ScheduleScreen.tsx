@@ -1,5 +1,5 @@
 import {StatusBar, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {palette} from '../../theme/palette';
@@ -8,6 +8,7 @@ import Header from '../../components/Header/Header';
 import Warning from '../../components/Warning/Warning';
 import Slots from '../../components/Slots/Slots';
 import {styles} from './styles';
+import {useSelector} from 'react-redux';
 
 interface slotProps {
   time: string;
@@ -42,7 +43,10 @@ const ScheduleScreen = () => {
           <Buttons
             back={() => navigation.goBack()}
             next={() => navigation.navigate('Confirmation')}
-            data={slot}
+            data={{
+              prop: 'timeSlotAndPrice',
+              data: slot,
+            }}
           />
         </View>
       </SafeAreaView>
