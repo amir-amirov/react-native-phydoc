@@ -10,6 +10,7 @@ import {format} from 'date-fns';
 import {ru} from 'date-fns/locale';
 import {API_URL} from '@env';
 import {styles} from './styles';
+import {useSelector} from 'react-redux';
 
 interface SlotsProps {
   setSlot: any;
@@ -20,6 +21,12 @@ const Slots: React.FC<SlotsProps> = ({setSlot}) => {
   const [slotsByDay, setSlotsByDay] = useState({});
 
   const [daysToShow, setDaysToShow] = useState(2);
+
+  const appointment = useSelector((state: any) => state.appointment);
+  const type =
+    appointment.appointmentType === 'Онлайн-консультация'
+      ? 'online'
+      : 'offline';
 
   const toggleDaysToShow = () => {
     daysToShow === 2
@@ -50,10 +57,10 @@ const Slots: React.FC<SlotsProps> = ({setSlot}) => {
         throw new Error(`Response status: ${response.status}`);
       }
       const slots = await response.json();
-      console.log('These are slots:', slots);
+      // console.log('These are slots:', slots);
 
       const groupedSlots = groupSlotsByDay(slots.slots);
-      console.log('These are grouped slots:', groupedSlots);
+      // console.log('These are grouped slots:', groupedSlots);
 
       setSlotsByDay(groupedSlots);
     } catch (error: any) {
@@ -61,7 +68,7 @@ const Slots: React.FC<SlotsProps> = ({setSlot}) => {
     }
   };
   useEffect(() => {
-    fetchSchedule('offline');
+    fetchSchedule(type);
   }, []);
   return (
     <View style={styles.container}>

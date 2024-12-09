@@ -31,7 +31,7 @@ const WelcomeScreen = () => {
 
         <View style={styles.buttons}>
           <Buttons
-            data={appointmentType}
+            data={{prop: 'appointmentType', data: appointmentType}}
             next={() => navigation.navigate('Patient')}
           />
         </View>
