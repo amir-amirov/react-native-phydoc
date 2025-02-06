@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-phydoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-phydoc.a */; };
+		13071FEE6CD0470AB62454D9 /* Onest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AD9EADCADA1400BA0B2117A /* Onest-Medium.ttf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1934E51824D344AEA7440B3F /* Onest-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F83F1E4987B469E871A4216 /* Onest-Regular.ttf */; };
+		7504FAEE95F04307A7496D2C /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4363D8ED93144F7B6FD0175 /* Onest-Bold.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		7B5243176D1F7ED09DE66F4C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EFE483D608574AF4AAD5501A /* Onest-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A94962A40CB45EEBD14FF00 /* Onest-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,11 +23,15 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = phydoc/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = phydoc/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = phydoc/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1AD9EADCADA1400BA0B2117A /* Onest-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Onest-Medium.ttf"; path = "../src/assets/fonts/Onest-Medium.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-phydoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phydoc.debug.xcconfig"; path = "Target Support Files/Pods-phydoc/Pods-phydoc.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-phydoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phydoc.release.xcconfig"; path = "Target Support Files/Pods-phydoc/Pods-phydoc.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-phydoc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phydoc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = phydoc/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = phydoc/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A94962A40CB45EEBD14FF00 /* Onest-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Onest-SemiBold.ttf"; path = "../src/assets/fonts/Onest-SemiBold.ttf"; sourceTree = "<group>"; };
+		9F83F1E4987B469E871A4216 /* Onest-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Onest-Regular.ttf"; path = "../src/assets/fonts/Onest-Regular.ttf"; sourceTree = "<group>"; };
+		D4363D8ED93144F7B6FD0175 /* Onest-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Onest-Bold.ttf"; path = "../src/assets/fonts/Onest-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -75,6 +83,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				9EF947A7217F4CEFBC6E0F94 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -87,6 +96,18 @@
 				13B07F961A680F5B00A75B9A /* phydoc.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9EF947A7217F4CEFBC6E0F94 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4363D8ED93144F7B6FD0175 /* Onest-Bold.ttf */,
+				1AD9EADCADA1400BA0B2117A /* Onest-Medium.ttf */,
+				9F83F1E4987B469E871A4216 /* Onest-Regular.ttf */,
+				9A94962A40CB45EEBD14FF00 /* Onest-SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -161,6 +182,10 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				7B5243176D1F7ED09DE66F4C /* PrivacyInfo.xcprivacy in Resources */,
+				7504FAEE95F04307A7496D2C /* Onest-Bold.ttf in Resources */,
+				13071FEE6CD0470AB62454D9 /* Onest-Medium.ttf in Resources */,
+				1934E51824D344AEA7440B3F /* Onest-Regular.ttf in Resources */,
+				EFE483D608574AF4AAD5501A /* Onest-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
