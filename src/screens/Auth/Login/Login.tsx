@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {FormData, schema} from './schema';
@@ -7,11 +7,15 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm, Controller} from 'react-hook-form';
 import BlueButton from '../../../components/Buttons/BlueButton/BlueButton';
 import ButtonWithoutBackground from '../../../components/Buttons/ButtonWithoutBackground/ButtonWithoutBackground';
-import CustomTextInput from '../../../components/CustomTextInput/CustomTextInput';
 import {styles} from './styles';
-import Config from 'react-native-config';
+import CustomTextInput from '../../../components/TextInputs/CustomTextInput/CustomTextInput';
+import CustomPhoneInput from '../../../components/TextInputs/PhoneInput/CustomPhoneInput';
+import theme from '../../../theme';
 
 const LoginScreen = () => {
+  const [isSubmitted, setSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const navigation = useNavigation<any>();
 
   const {
@@ -23,7 +27,17 @@ const LoginScreen = () => {
   });
 
   const onSubmit = (data: FormData) => {
+    setPhoneError('');
+    setPasswordError('');
+    setSubmitted(true);
     console.log('Form Data:', data);
+    if (data.phone != '+77074304349') {
+      setPhoneError('There is a phone error');
+    } else if (data.password != '123456') {
+      setPasswordError('There is a password error');
+    } else {
+      console.log('Logged in successfully');
+    }
   };
 
   return (
@@ -31,7 +45,7 @@ const LoginScreen = () => {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>PhyDoc</Text>
         <Text style={styles.headerSubTitle}>
-          Ваш карманный медицинский помощник {Config.API_URL}
+          Ваш карманный медицинский помощник
         </Text>
       </View>
 
@@ -42,13 +56,23 @@ const LoginScreen = () => {
             control={control}
             name="phone"
             render={({field: {onChange, onBlur, value}}) => (
-              <CustomTextInput
+              // <CustomTextInput
+              //   keyboardType="numeric"
+              //   placeholder="+ 7 (707) 777-77-77"
+              //   onBlur={onBlur}
+              //   onChangeText={onChange}
+              //   value={value}
+              //   error={errors.phone}
+              // />
+              <CustomPhoneInput
                 keyboardType="numeric"
-                placeholder="+ 7 (707) 777-77-77"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 error={errors.phone}
+                isSubmitted={isSubmitted}
+                inputError={phoneError}
+                selectionColor={theme.palette.gray[700]}
               />
             )}
           />
@@ -65,6 +89,9 @@ const LoginScreen = () => {
                 onChangeText={onChange}
                 value={value}
                 error={errors.password}
+                isSubmitted={isSubmitted}
+                inputError={passwordError}
+                selectionColor={theme.palette.gray[700]}
               />
             )}
           />
