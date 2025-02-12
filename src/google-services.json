@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "260684318192",
+    "project_id": "phydoc-67ea7",
+    "storage_bucket": "phydoc-67ea7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260684318192:android:8420028695302e58288935",
+        "android_client_info": {
+          "package_name": "com.phydoc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXwEMePV9Q3YRMaWiyAp4aXW0PMte4IBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

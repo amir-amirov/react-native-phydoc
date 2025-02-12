@@ -5,13 +5,34 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import theme from '../../../../theme';
 import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
 
 const RegisterScreen = () => {
+  const [value, setValue] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation<any>();
+
+  const checkCode = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const response = await axios.post('http://localhost:3000/auth/code', {
+        phone: value,
+      });
+      navigation.navigate('OTP', {code: response.data});
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+
+      console.log(err);
+      setError('Try again');
+    }
+  };
 
   return (
     <SafeAreaView style={{paddingHorizontal: 16, flex: 1}}>
@@ -41,6 +62,8 @@ const RegisterScreen = () => {
           Номер телефона:
         </Text>
         <TextInput
+          value={value}
+          onChangeText={setValue}
           style={{
             borderRadius: 12,
             padding: 16,
@@ -60,7 +83,8 @@ const RegisterScreen = () => {
             width: '100%',
             backgroundColor: theme.palette.primaryBrand[300],
           }}
-          onPress={() => navigation.navigate('OTP')}>
+          disabled={loading}
+          onPress={() => checkCode()}>
           <Text
             style={[
               theme.typography.text.bold16,
