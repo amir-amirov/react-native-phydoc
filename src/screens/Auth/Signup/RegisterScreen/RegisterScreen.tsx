@@ -84,7 +84,8 @@ const RegisterScreen = () => {
             backgroundColor: theme.palette.primaryBrand[300],
           }}
           disabled={loading}
-          onPress={() => checkCode()}>
+          // onPress={() => checkCode()}>
+          onPress={() => navigation.navigate("Language")}>
           <Text
             style={[
               theme.typography.text.bold16,

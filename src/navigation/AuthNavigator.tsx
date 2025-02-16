@@ -4,6 +4,7 @@ import LoginScreen from '../screens/Auth/Login/Login';
 import RegisterScreen from '../screens/Auth/Signup/RegisterScreen/RegisterScreen';
 import OTPScreen from '../screens/Auth/Signup/OTPScreen/OTPScreen';
 import PasswordScreen from '../screens/Auth/Signup/PasswordScreen/PasswordScreen';
+import LanguageSelectionScreen from '../screens/Auth/Signup/LanguageSelectionScreen/LanguageSelectionScreen';
 // import LoginScreen from '../screens/Auth/LoginScreen';
 // import RegisterScreen from '../screens/Auth/RegisterScreen';
 // import LanguageSelectionScreen from '../screens/Setup/LanguageSelectionScreen';
@@ -35,12 +36,12 @@ const AuthNavigator = () => (
       component={PasswordScreen}
       options={{animation: 'slide_from_right'}}
     />
-    {/*
     <Stack.Screen
       name="LanguageSelection"
       component={LanguageSelectionScreen}
       options={{animation: 'slide_from_right'}}
     />
+    {/*
     <Stack.Screen
       name="RoleSelection"
       component={RoleSelectionScreen}
