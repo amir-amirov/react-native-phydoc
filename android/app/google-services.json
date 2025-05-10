@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "260684318192",
+    "project_id": "phydoc-67ea7",
+    "storage_bucket": "phydoc-67ea7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260684318192:android:8420028695302e58288935",
+        "android_client_info": {
+          "package_name": "com.phydoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260684318192-bu9qumjig9ltnpcprg38i0hd03jbn0i0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phydoc",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "260684318192-ehhv8elf8u2k8qbf0t174eukli8c212v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXwEMePV9Q3YRMaWiyAp4aXW0PMte4IBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260684318192-ehhv8elf8u2k8qbf0t174eukli8c212v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "260684318192-jortp7iaotjq4310h19n239kpgsml5uf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.jaiyq.phydoc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

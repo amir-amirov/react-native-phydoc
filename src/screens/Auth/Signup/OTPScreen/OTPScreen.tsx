@@ -13,33 +13,58 @@ import {
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 import theme from '../../../../theme';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 // import Loader from '../../components/CircularProgress/CircularProgress';
 
 const CELL_COUNT = 4;
 
 const OTPScreen = () => {
+  const route = useRoute();
+  const {code} = route.params;
+
   const [value, setValue] = useState('');
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
   const [loading, setLoading] = useState(false);
+  const [isInCorrect, setInCorrect] = useState(false);
 
   const navigation = useNavigation<any>();
 
-  useEffect(() => {
-    if (loading) {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 6000);
+  const checkCode = () => {
+    setInCorrect(false);
+    if (value == code) {
+      navigation.navigate('Password');
+      console.log('Correct code!');
+    } else {
+      console.log('Incorrect... ', 'Code is ', code, 'Value is ', value);
+      setInCorrect(true);
+    }
+  };
 
+  const [seconds, setSeconds] = useState(59);
+  const [isRunning, setIsRunning] = useState(true);
+
+  useEffect(() => {
+    if (isRunning && seconds > 0) {
+      const timer = setTimeout(() => setSeconds(prev => prev - 1), 1000);
       return () => clearTimeout(timer);
     }
-  }, [loading]);
+  }, [seconds, isRunning]);
+
+  const resetTimer = () => {
+    setSeconds(59);
+    setIsRunning(true);
+  };
 
   if (loading) {
-    return <Loader />;
+    // return <Loader />;
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text>Loading</Text>
+      </View>
+    );
   }
 
   return (
@@ -79,16 +104,36 @@ const OTPScreen = () => {
           <Text
             style={[
               theme.typography.text.medium16,
-              {color: theme.palette.gray[600], textAlign: 'center'},
+              {
+                color: isInCorrect
+                  ? theme.palette.error[300]
+                  : theme.palette.gray[600],
+                textAlign: 'center',
+              },
             ]}>
-            Не пришло СМС?
+            {isInCorrect ? 'Неверный код' : 'Не пришло СМС?'}
           </Text>
           <Text
             style={[
               theme.typography.text.medium16,
               {color: theme.palette.gray[600], textAlign: 'center'},
             ]}>
-            Можно отправить заново через 00:59
+            Можно{' '}
+            <Text
+              style={[
+                theme.typography.text.medium16,
+                {color: theme.palette.primaryBrand[300]},
+              ]}>
+              отправить заново{' '}
+            </Text>
+            через{' '}
+            <Text
+              style={[
+                theme.typography.text.medium16,
+                {color: theme.palette.primaryBrand[300]},
+              ]}>
+              00:{seconds}
+            </Text>
           </Text>
           <Text
             style={[
@@ -107,7 +152,7 @@ const OTPScreen = () => {
               width: '100%',
               backgroundColor: theme.palette.primaryBrand[300],
             }}
-            onPress={() => navigation.navigate('Password')}>
+            onPress={() => checkCode()}>
             <Text
               style={[
                 theme.typography.text.bold16,
@@ -124,7 +169,7 @@ const OTPScreen = () => {
               borderWidth: 2,
               borderColor: theme.palette.primaryBrand[300],
             }}
-            onPress={() => {}}>
+            onPress={() => navigation.goBack()}>
             <Text
               style={[
                 theme.typography.text.bold16,

@@ -1,11 +1,11 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-// import Header from '../../components/Header/Header';
 import theme from '../../../../theme';
-// import LeftArrow from '../../assets/icons/LeftArrow';
 import {useNavigation} from '@react-navigation/native';
-// import {Dropdown} from 'react-native-element-dropdown';
+import {Dropdown} from 'react-native-element-dropdown';
+import Header from '../../../../components/Header/Header';
+import LeftArrow from '../../../../assets/icons/LeftArrow';
 
 const data = [
   {label: 'Русский', value: '1'},

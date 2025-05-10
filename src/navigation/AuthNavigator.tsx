@@ -2,10 +2,11 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/Auth/Login/Login';
 import RegisterScreen from '../screens/Auth/Signup/RegisterScreen/RegisterScreen';
+import OTPScreen from '../screens/Auth/Signup/OTPScreen/OTPScreen';
+import PasswordScreen from '../screens/Auth/Signup/PasswordScreen/PasswordScreen';
+import LanguageSelectionScreen from '../screens/Auth/Signup/LanguageSelectionScreen/LanguageSelectionScreen';
 // import LoginScreen from '../screens/Auth/LoginScreen';
 // import RegisterScreen from '../screens/Auth/RegisterScreen';
-// import OTPScreen from '../screens/Auth/OTPScreen';
-// import PasswordScreen from '../screens/Setup/PasswordScreen';
 // import LanguageSelectionScreen from '../screens/Setup/LanguageSelectionScreen';
 // import RoleSelectionScreen from '../screens/Setup/RoleSelectionScreen';
 // import ProfileSetupScreen from '../screens/Setup/ProfileSetupScreen';
@@ -25,7 +26,7 @@ const AuthNavigator = () => (
       component={RegisterScreen}
       options={{animation: 'slide_from_right'}}
     />
-    {/* <Stack.Screen
+    <Stack.Screen
       name="OTP"
       component={OTPScreen}
       options={{animation: 'slide_from_right'}}
@@ -40,6 +41,7 @@ const AuthNavigator = () => (
       component={LanguageSelectionScreen}
       options={{animation: 'slide_from_right'}}
     />
+    {/*
     <Stack.Screen
       name="RoleSelection"
       component={RoleSelectionScreen}
